@@ -28,7 +28,7 @@ app.post("/api/notification", (req, res) => {
   const output =template(name,orderID,price,address,product);
 
   sendEmail(to, from, subject, output);
-  res.status(200).json(output);
+  res.status(200).json({name,email,orderID,price,address,product});
     }catch (e) {
     res.status(400).json({message: e.message});
 }
